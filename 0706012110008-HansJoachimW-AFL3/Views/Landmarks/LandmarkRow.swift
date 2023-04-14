@@ -13,6 +13,7 @@ struct LandmarkRow: View {
     
     var body: some View {
         HStack {
+            // shows each landmark image
             landmark.image
                 .resizable()
                 .frame(width: 50, height: 50)

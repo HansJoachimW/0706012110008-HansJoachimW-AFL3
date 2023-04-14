@@ -7,7 +7,9 @@ The elevation, heart rate, and pace of a hike plotted on a graph.
 
 import SwiftUI
 
+// add animation
 extension Animation {
+    // add ripple effect
     static func ripple(index: Int) -> Animation {
         Animation.spring(dampingFraction: 0.5)
             .speed(2)
@@ -16,9 +18,11 @@ extension Animation {
 }
 
 struct HikeGraph: View {
+    // create new var from object
     var hike: Hike
     var path: KeyPath<Hike.Observation, Range<Double>>
 
+    // add color to each path
     var color: Color {
         switch path {
         case \.elevation:
@@ -33,11 +37,13 @@ struct HikeGraph: View {
     }
 
     var body: some View {
+        // create graphs
         let data = hike.observations
         let overallRange = rangeOfRanges(data.lazy.map { $0[keyPath: path] })
         let maxMagnitude = data.map { magnitude(of: $0[keyPath: path]) }.max()!
         let heightRatio = 1 - CGFloat(maxMagnitude / magnitude(of: overallRange))
 
+        // show graphs
         return GeometryReader { proxy in
             HStack(alignment: .bottom, spacing: proxy.size.width / 120) {
                 ForEach(Array(data.enumerated()), id: \.offset) { index, observation in

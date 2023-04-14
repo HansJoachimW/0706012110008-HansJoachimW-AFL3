@@ -22,6 +22,7 @@ struct Hike: Codable, Hashable, Identifiable {
             .string(fromValue: distance, unit: .kilometer)
     }
 
+    // creates new observation struct
     struct Observation: Codable, Hashable {
         var distanceFromStart: Double
 

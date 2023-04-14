@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct FavoriteButton: View {
+    // adds binding to connect a value and the view to display and change it
     @Binding var isSet: Bool
     
     var body: some View {
         Button {
+            // adds a toggle button to filter landmarks
             isSet.toggle()
         } label: {
             Label("Toggle Favorite", systemImage: isSet ? "star.fill" : "star")
@@ -21,6 +23,7 @@ struct FavoriteButton: View {
     }
 }
 
+// display
 struct FavoriteButton_Previews: PreviewProvider {
     static var previews: some View {
         FavoriteButton(isSet: .constant(true))

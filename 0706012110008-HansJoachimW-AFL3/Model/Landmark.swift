@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
+// creates landmark strucg
 struct Landmark: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
@@ -17,7 +18,7 @@ struct Landmark: Hashable, Codable, Identifiable {
     var description: String
     var isFavorite: Bool
     
-    // get landmark images from resources
+    // get landmark images from assets
     private var imageName: String
     var image: Image {
         Image(imageName)
@@ -31,7 +32,7 @@ struct Landmark: Hashable, Codable, Identifiable {
             longitude: coordinates.longitude)
     }
     
-    // coordinates object
+    // creates coordinates struct
     struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double

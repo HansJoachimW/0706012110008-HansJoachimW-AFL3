@@ -13,6 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            // adds list to show landmark data in landmark rows
             LandmarkList()
         }
     }

@@ -21,6 +21,7 @@ struct HexagonParameters {
     
     // array to hold the three values
     static let segments = [
+        // each segment represents each side of the shape, hence, six segments for the hexagon
         Segment(
             line:    CGPoint(x: 0.60, y: 0.05),
             curve:   CGPoint(x: 0.40, y: 0.05),

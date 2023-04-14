@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// adds image within a circle boundary
 struct CircleImage: View {
     var image: Image
     
