@@ -11,6 +11,7 @@ import Combine
 // contains the data from the decoded json resource file
 final class ModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
+    var hikes: [Hike] = load("hikeData.json")
 }
 
 // error handling
