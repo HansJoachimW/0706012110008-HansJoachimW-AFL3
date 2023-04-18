@@ -8,13 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    // initialize model date
-    @StateObject private var modelData = ModelData()
+    // initialize new state
+    @State private var selection: Tab = .featured
+    
+    // add tab enumeration
+    enum Tab {
+        case featured
+        case list
+    }
     
     var body: some View {
-        VStack {
-            // adds list to show landmark data in landmark rows
+        // create a tabview
+        TabView(selection: $selection) {
+            // display category home
+            CategoryHome()
+                .tabItem {
+                    Label("Featured", systemImage: "star")
+                }
+                .tag(Tab.featured)
+
+            // display landmarks list
             LandmarkList()
+                .tabItem {
+                    Label("List", systemImage: "list.bullet")
+                }
+                .tag(Tab.list)
         }
     }
 }   

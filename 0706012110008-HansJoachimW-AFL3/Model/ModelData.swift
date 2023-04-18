@@ -11,8 +11,25 @@ import Combine
 // adds an obeservable object
 // contains the data from the decoded json resource file
 final class ModelData: ObservableObject {
+    // load landmarks data
     @Published var landmarks: [Landmark] = load("landmarkData.json")
+    // load profile data from default profile values
+    @Published var profile = Profile.default
+    // load hike data
     var hikes: [Hike] = load("hikeData.json")
+    
+    //
+    var features: [Landmark] {
+            landmarks.filter { $0.isFeatured }
+        }
+    
+    // load categories data
+    var categories: [String: [Landmark]] {
+        Dictionary(
+            grouping: landmarks,
+            by: { $0.category.rawValue }
+        )
+    }
 }
 
 // error handling
