@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var modelData: ModelData
     // initialize new state
     @State private var selection: Tab = .featured
     
@@ -21,14 +22,14 @@ struct ContentView: View {
         // create a tabview
         TabView(selection: $selection) {
             // display category home
-            CategoryHome()
+            CategoryHome().environmentObject(ModelData())
                 .tabItem {
                     Label("Featured", systemImage: "star")
                 }
                 .tag(Tab.featured)
 
             // display landmarks list
-            LandmarkList()
+            LandmarkList().environmentObject(ModelData())
                 .tabItem {
                     Label("List", systemImage: "list.bullet")
                 }
